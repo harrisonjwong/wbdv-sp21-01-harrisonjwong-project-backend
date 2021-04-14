@@ -44,5 +44,6 @@ app.use(function (req, res, next) {
 });
 
 require('./controllers/user-controller')(app);
+require('./controllers/favorite-post-controller')(app);
 
 app.listen(3001);
