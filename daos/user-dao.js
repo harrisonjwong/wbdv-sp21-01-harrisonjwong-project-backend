@@ -8,10 +8,16 @@ const createUser = (userBody) => {
   const username = userBody.username;
   const password = userBody.password;
   const displayName = userBody.displayName;
-  return userModel.create({username, password, displayName});
+  const role = userBody.role;
+  return userModel.create({username, password, displayName, role});
+}
+
+const updateUser = (userBody) => {
+  return userModel.updateOne({_id: userBody._id}, {$set: userBody});
 }
 
 module.exports = {
   findUserByCredentials,
-  createUser
+  createUser,
+  updateUser
 }

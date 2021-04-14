@@ -41,8 +41,24 @@ module.exports = (app) => {
     res.sendStatus(200);
   }
 
+  const updateProfile = (req, res) => {
+    const currentUser = req.session['currentUser'];
+    const updatedUser = req.body;
+    if (currentUser._id === updatedUser._id) {
+      userDao.updateUser(updatedUser)
+        .then(response => {
+          res.send(response);
+          req.session['currentUser'] = updatedUser;
+          req.session.save();
+        });
+    } else {
+      res.sendStatus(400)
+    }
+  }
+
   app.post('/api/login', login);
   app.post('/api/register', register);
   app.post('/api/logout', logout);
   app.get('/api/profile', profile);
+  app.put('/api/profile/update', updateProfile)
 }

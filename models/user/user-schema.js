@@ -6,7 +6,11 @@ const userSchema = mongoose.Schema({
     type: String
   },
   password: String,
-  displayName: String
+  displayName: String,
+  role: {
+    type: String,
+    enum: ['user', 'superuser']
+  }
 }, {collection: 'user'});
 
 module.exports = userSchema;
