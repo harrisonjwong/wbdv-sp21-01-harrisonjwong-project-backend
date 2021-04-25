@@ -6,7 +6,8 @@ module.exports = (app) => {
     const threadId = req.body.threadId;
     const username = req.body.username;
     const threadTitle = req.body.threadTitle;
-    favoritePostDao.createFavoritePost(userId, threadId, username, threadTitle)
+    const thumbnail = req.body.thumbnail;
+    favoritePostDao.createFavoritePost(userId, threadId, username, threadTitle, thumbnail)
       .then(favoritePost => res.json(favoritePost));
   }
 
@@ -46,10 +47,16 @@ module.exports = (app) => {
       .then(posts => res.json(posts));
   }
 
+  const countFavoritePosts = (req, res) => {
+    favoritePostDao.countFavoritePostsByUser()
+      .then(users => res.json(users));
+  }
+
   app.post('/api/favoritepost/create', createFavoritePost);
   app.delete('/api/favoritepost/remove', removeFavoritePost)
   app.get('/api/favoritepost/user/:userId', findFavoritePostsByUser);
   app.get('/api/favoritepost/username/:username', findFavoritePostsByUsername);
-  app.get('/api/favoritepost/check/:threadId/:userId', isFavoritePost)
-  app.get('/api/favoritepost/all', findAllFavoritePosts)
+  app.get('/api/favoritepost/check/:threadId/:userId', isFavoritePost);
+  app.get('/api/favoritepost/all', findAllFavoritePosts);
+  app.get('/api/favoritepost/countByUser', countFavoritePosts);
 }

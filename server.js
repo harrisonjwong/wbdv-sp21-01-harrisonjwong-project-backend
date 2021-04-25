@@ -11,7 +11,7 @@ const mongoAtlasUri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PAS
 
 try {
   mongoose.connect(mongoAtlasUri,
-    {useNewUrlParser: true, useUnifiedTopology: true},
+    {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false},
     () => console.log('connected'));
 } catch (e) {
   console.log('could not connect', e);

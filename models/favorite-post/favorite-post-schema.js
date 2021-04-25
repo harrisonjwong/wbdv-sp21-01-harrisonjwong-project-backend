@@ -7,7 +7,8 @@ const favoritePostSchema = mongoose.Schema({
   },
   username: String,
   threadId: String,
-  threadTitle: String
+  threadTitle: String,
+  thumbnail: String
 }, {collection: 'favoritePost'});
 
 module.exports = favoritePostSchema;
