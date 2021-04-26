@@ -18,6 +18,13 @@ Uses MongoDB and Node.js (Express, Mongoose)
 4. Create a folder in the repo for the database (I call it db)
 5. Run `mongod --dbpath db` to start the Mongo server
    1. You can access the mongo shell from another terminal window with `mongo`
+6. Create a .env file
+   ```
+   DB_USER=user (your username)
+   DB_PASS=pass (your password)
+   ALLOW_ORIGIN=http://localhost:3000 (or location of the React app)
+   ```
 6. Do `npm start` or `node server.js` to start the server
+
 
 
