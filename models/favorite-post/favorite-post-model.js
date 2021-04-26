@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const userSchema = require('./favorite-post-schema');
+const favoritePostSchema = require('./favorite-post-schema');
 
-const favoritePostModel = mongoose.model('FavoritePostModel', userSchema);
+const favoritePostModel = mongoose.model('FavoritePostModel', favoritePostSchema);
 
 module.exports = favoritePostModel;

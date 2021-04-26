@@ -16,8 +16,13 @@ const updateUser = (userBody) => {
   return userModel.updateOne({_id: userBody._id}, {$set: userBody});
 }
 
+const findUser = (username) => {
+  return userModel.findOne({username});
+}
+
 module.exports = {
   findUserByCredentials,
   createUser,
-  updateUser
+  updateUser,
+  findUser
 }

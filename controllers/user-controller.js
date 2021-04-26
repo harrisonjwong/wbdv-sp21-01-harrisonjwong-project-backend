@@ -56,9 +56,15 @@ module.exports = (app) => {
     }
   }
 
+  const findUser = (req, res) => {
+    const username = req.params.username;
+    userDao.findUser(username).then(response => res.json(response));
+  }
+
   app.post('/api/login', login);
   app.post('/api/register', register);
   app.post('/api/logout', logout);
   app.get('/api/profile', profile);
   app.put('/api/profile/update', updateProfile)
+  app.get('/api/findUser/:username', findUser);
 }

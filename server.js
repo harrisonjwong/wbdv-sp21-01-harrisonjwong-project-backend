@@ -45,5 +45,7 @@ app.use(function (req, res, next) {
 
 require('./controllers/user-controller')(app);
 require('./controllers/favorite-post-controller')(app);
+require('./controllers/subreddit-controller')(app);
+require('./controllers/favorite-subreddit-controller')(app);
 
 app.listen(process.env.PORT || 3001);
