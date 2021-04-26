@@ -24,7 +24,7 @@ Uses MongoDB and Node.js (Express, Mongoose)
    DB_PASS=pass (your password)
    ALLOW_ORIGIN=http://localhost:3000 (or location of the React app)
    ```
-6. Do `npm start` or `node server.js` to start the server
+7. Do `npm start` or `node server.js` to start the server
 
 
 
