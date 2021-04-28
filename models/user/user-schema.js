@@ -10,7 +10,9 @@ const userSchema = mongoose.Schema({
   role: {
     type: String,
     enum: ['user', 'superuser']
-  }
+  },
+  email: String,
+  dob: Date
 }, {collection: 'user'});
 
 module.exports = userSchema;

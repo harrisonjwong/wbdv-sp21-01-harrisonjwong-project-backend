@@ -9,7 +9,9 @@ const createUser = (userBody) => {
   const password = userBody.password;
   const displayName = userBody.displayName;
   const role = userBody.role;
-  return userModel.create({username, password, displayName, role});
+  const email = userBody.email;
+  const dob = userBody.dob;
+  return userModel.create({username, password, displayName, role, email, dob});
 }
 
 const updateUser = (userBody) => {
